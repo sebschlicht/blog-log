@@ -54,3 +54,10 @@ Check if it's currently enabled, otherwise enable it:
 Then set a static token (interface ID), here `::1` (short for  `0:0:0:1`):
 
     sudo ip token set ::1/64 dev wlp0s20f3
+
+Please note that these changes are not persistent, e.g. put them in your `.bashrc`.
+Alternatively, when using GNOME you can use the following commands for persistent changes.
+
+    nmcli connection modify wlp0s20f3 ipv6.method "auto"
+    nmcli connection modify wlp0s20f3 ipv6.addr-gen-mode "eui64"
+    nmcli connection modify wlp0s20f3 ipv6.token "::1"
